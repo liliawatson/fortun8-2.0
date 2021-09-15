@@ -57,12 +57,12 @@
       <input type="submit" value="🔮" onclick="tellFortune()"/>
     </div>
     <h3>Fortun8</h3>
-    <p id="fortune">❓</p>
-    <p id="fortune">❓</p>
-    <p id="fortune">❓</p>
+    <p id="fortune1">❓</p>
+    <p id="fortune2">❓</p>
+    <p id="fortune3">❓</p>
   </div>
 
-    <p>Enter your inquiry below and press the crystal ball to discover your DESTINY - <i>in emoji format of course!</i> 👍</p>
+    <p>Enter your inquiry below and press the crystal ball to determine your fate! The generator will create a three card spread fortune, called Mind, Body, and Spirit.</p>
 
     <form onsubmit="tellFortune()" id="myForm">
       <input type="text" id="userInput" autofocus />
@@ -74,11 +74,16 @@
       // much more interesting than PURE RANDOM
       // use TIME and THE NUMBER OF LETTERS instead of RANDOM, to produce fortune-tellery results!
       function tellFortune(){
-        const responses = ['😀','😘','😳','🤩','😂','😥'];
+        const responses1 = ['The Magician Reversed','The Sun Reversed','The Hierophant','Wheel of Fortune','Temperance Reversed','The Hermit','Strength Reversed','The Empress Reversed','The Moon','Death Reversed','The World Reversed','The Empress','The High Priestess Reversed','Justice','The Chariot','The Lovers Reversed','The Hierophant Reversed','The Hanged Man','The World','The Tower Reversed','Strength','Justice Reversed','The High Priestess','The Emperor Reversed','The Emperor','The Devil Reversed','The Chariot Reversed','The Sun','The Star','The Magician','The Devil','The Tower','The Moon Reversed','Judgment','The Star Reversed','Temperance','The Hermit Reversed','Wheel of Fortune Reversed','Death','The Lovers','The Fool','The Hanged Man Reversed','The Fool Reversed','Judgment Reversed'];
+        const responses2 = ['Wheel of Fortune Reversed','The Lovers Reversed','The Empress Reversed','The Empress','The Star','The Magician','The Moon','The Tower Reversed','The Tower','The Chariot','The Hermit Reversed','The Hanged Man','The Hermit','The Magician Reversed','Death','Strength Reversed','Judgment Reversed','Judgment','Wheel of Fortune','Justice','The Sun Reversed','The Devil Reversed','The Sun','The Star Reversed','Death Reversed','The Moon Reversed','The Fool','The Hierophant','The Fool Reversed','The Devil','The Chariot Reversed','The Emperor Reversed','Temperance','The Lovers','The Emperor','The Hanged Man Reversed','Strength','The World','The High Priestess Reversed','The High Priestess','Temperance Reversed','The Hierophant Reversed','Justice Reversed','The World Reversed'];
+        const responses3 = ['The Tower','Temperance Reversed','The Hierophant','Death','The Magician','The Chariot','The High Priestess','The Chariot Reversed','The Hermit Reversed','The High Priestess Reversed','The Star','The Magician Reversed','Wheel of Fortune','The Lovers Reversed','The Hermit','Judgment Reversed','The Empress','The Lovers','The Moon Reversed','Justice Reversed','The Tower Reversed','The Devil','Justice','The Fool','The Devil Reversed','The Sun Reversed',
+'Temperance','The Empress Reversed','The World','The Moon','The World Reversed','Wheel of Fortune Reversed','The Sun','The Hanged Man Reversed','Strength Reversed','The Hierophant Reversed','The Emperor Reversed','The Fool Reversed','Strength','Judgment','The Hanged Man','Death Reversed','The Star Reversed','The Emperor'];
         var time = new Date().getMinutes();
         var letterCount = document.getElementById("userInput").value.length;
         var math = time + letterCount;
-        document.getElementById("fortune").innerText = responses[math%responses.length];
+        document.getElementById("fortune1").innerText = responses1[math%responses1.length];
+        document.getElementById("fortune2").innerText = responses2[math%responses2.length];
+        document.getElementById("fortune3").innerText = responses3[math%responses3.length];
         // alert(responses[Math.floor(Math.random() * (responses.length - 0) + 0)]);
       }
 

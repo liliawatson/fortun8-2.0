@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fortun8</title>
+  <style>
+    body {
+      background: #a70b1b;
+      color: #000;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      text-align: center;
+    }
+    h3 {
+      color: #000;
+    }
+    input {
+      background: none;
+      border: none;
+      font-size: x-large;
+    }
+    #userInput {
+      border: .1em solid #ff5b6c;
+      background: none;
+      color: #ff5b6c;
+    }
+    h1 {
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    #teller {
+      border: .2em solid rgb(160, 2, 2);
+      border-radius: 1px;
+      background: rgba(245, 218, 65, 0.63);
+      padding-left: 1em;
+      padding-right: 1em;
+      max-width: fit-content;
+      margin: auto auto;
+    }
+    #fortune {
+      background: black;
+      width: 2em;
+      margin: auto auto;
+      margin-bottom: 1em;
+      border: 1px solid rgba(90, 59, 0, 0.719);
+    }
+    #window {
+      background: rgb(255, 239, 149);
+      border: 1px solid red;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="teller" style="font-size: x-large;">
+    <div id="window">
+      <h1 style="margin-bottom: 0;">🧞</h1>
+      <input type="submit" value="🔮" onclick="tellFortune()"/>
+    </div>
+    <h3>Fortun8</h3>
+    <p id="fortune">❓</p>
+  </div>
+
+    <p>Enter your inquiry below and press the crystal ball to discover your DESTINY - <i>in emoji format of course!</i> 👍</p>
+
+    <form onsubmit="tellFortune()" id="myForm">
+      <input type="text" id="userInput" autofocus />
+    </form>
+
+    <script>
+      // Generate fortune BASED ON INPUT
+      // i.e. entering the same thing twice will get THE SAME FORTUNE!
+      // much more interesting than PURE RANDOM
+      // use TIME and THE NUMBER OF LETTERS instead of RANDOM, to produce fortune-tellery results!
+      function tellFortune(){
+        const responses = ['😀','😘','😳','🤩','😂','😥'];
+        var time = new Date().getMinutes();
+        var letterCount = document.getElementById("userInput").value.length;
+        var math = time + letterCount;
+        document.getElementById("fortune").innerText = responses[math%responses.length];
+        // alert(responses[Math.floor(Math.random() * (responses.length - 0) + 0)]);
+      }
+
+      // stop form from doing the refresh thing
+      var form = document.getElementById("myForm");
+      function handleForm(event) { event.preventDefault(); } 
+      form.addEventListener('submit', handleForm);
+    </script>
+
+</body>
+</html>
